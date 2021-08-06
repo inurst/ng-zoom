@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
     document.getElementById('zmmtg-root').style.display = 'block'
     document.getElementById('zmmtg-root').style.zIndex = '10'
 
-    const zoomName: string = this.zoomForm.value.firstname + ' ' + this.zoomForm.value.lastname + ' + ' + this.zoomForm.value.institution;
+    const zoomName: string = this.zoomForm.value.firstname + '+' + this.zoomForm.value.lastname + ' + ' + this.zoomForm.value.institution;
     this.zoomForm.reset();
 
     ZoomMtg.init({
