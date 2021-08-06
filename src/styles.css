@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+div {
+  font-family: 'Prompt', sans-serif;
+}
+
+/* html, body {
+  min-width: auto !important;
+} */
+
+#zmmtg-root {
+  display: none;
+}
+
+@media screen and (orientation: landscape) {
+  html, body {
+  }
+}
+
+@media screen and (orientation : portrait) {
+  html, body {
+    min-width: auto !important;
+  }
+}

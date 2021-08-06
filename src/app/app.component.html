@@ -1,3 +1,68 @@
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="container mt-3">
+
+  <div class="box">
+    <div class="box-img">
+      <img class="img-logo" src="../assets/logo_cnap.png">
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="text-title">
+      <b>กิจกรรม : </b> &nbsp;{{activityName }}
+    </div>
+  </div>
+
+  <form [formGroup]="zoomForm">
+    <div class="box-big-name">
+      <div class="d-flex box-name">
+        <div class="input-group">
+          <span class="input-group-text text-form">ชื่อ :</span>
+          <input 
+            type="text" 
+            class="form-control text-form" 
+            formControlName="firstname" 
+            [class.is-invalid]="zoomForm.controls.firstname.status == 'INVALID'"
+            [class.is-valid]="zoomForm.controls.firstname.status == 'VALID'"
+          >
+        </div>
+      </div>
+      <div class="d-flex box-name">
+        <div class="input-group">
+          <span class="input-group-text text-form">นามสกุล :</span>
+          <input 
+            type="text" 
+            class="form-control text-form" 
+            formControlName="lastname"
+            [class.is-invalid]="zoomForm.controls.lastname.status == 'INVALID'"
+            [class.is-valid]="zoomForm.controls.lastname.status == 'VALID'"
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="d-flex" style="width: 100%;">
+        <div class="input-group">
+          <span class="input-group-text text-form">สถาบันการศึกษา :</span>
+          <input
+            type="text" 
+            class="form-control text-form" 
+            formControlName="institution"
+            [class.is-invalid]="zoomForm.controls.institution.status == 'INVALID'"
+            [class.is-valid]="zoomForm.controls.institution.status == 'VALID'"
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="box-button">
+      <div>
+        <button class="btn btn-success text-btn" (click)="getSignature()" [disabled]="zoomForm.status == 'INVALID'">เข้าร่วมกิจกรรม</button>
+      </div>
+      <!-- <div>
+        <button class="btn btn-danger text-btn" (click)="getTest()">Test</button>
+      </div> -->
+    </div>
+  </form>
+
 </div>

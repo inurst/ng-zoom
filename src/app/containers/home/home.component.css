@@ -1,0 +1,16 @@
+.container {
+    max-width: 360px;
+    background-color: aqua;
+    border: 1 solid #000;
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    width: 50%;
+    height: 50%;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
