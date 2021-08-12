@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   passWord = '072'
 
   activityName = 'วันคุ้มครองโลก';
+  title: string;
 
   constructor(
     public httpClient: HttpClient,
@@ -75,8 +76,12 @@ export class AppComponent implements OnInit {
 
   getTest() {
     console.log(this.zoomForm);
-    const zoomName: string = this.zoomForm.value.firstname + ' ' + this.zoomForm.value.lastname + ' + ' + this.zoomForm.value.institution;
+    const zoomName: string = this.title + '+' + this.zoomForm.value.firstname + '+' + this.zoomForm.value.lastname + '+' + this.zoomForm.value.institution;
     console.log('zoomName : ' + zoomName);
+  }
+
+  selectTitle(param: string) {
+    this.title = param;
   }
 
   startMeeting(signature) {
@@ -84,7 +89,7 @@ export class AppComponent implements OnInit {
     document.getElementById('zmmtg-root').style.display = 'block'
     document.getElementById('zmmtg-root').style.zIndex = '10'
 
-    const zoomName: string = this.zoomForm.value.firstname + '+' + this.zoomForm.value.lastname + ' + ' + this.zoomForm.value.institution;
+    const zoomName: string = this.title + '+' + this.zoomForm.value.firstname + '+' + this.zoomForm.value.lastname + '+' + this.zoomForm.value.institution;
     this.zoomForm.reset();
 
     ZoomMtg.init({

@@ -6,19 +6,36 @@
     </div>
   </div>
 
-  <div class="box">
-    <div class="text-title">
-      <b>กิจกรรม : </b> &nbsp;{{activityName }}
-    </div>
-  </div>
-
-  <form [formGroup]="zoomForm">
+  <form [formGroup]="zoomForm" style="margin-top: 2rem;">
     <div class="box-big-name">
+      <div class="d-flex box-name">
+        <div class="input-group d-flex align-items-center">
+          <span class="input-group-text text-form">คำนำหน้า :</span>
+          <span style="margin-left: 1rem;">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" (click)="selectTitle('นาย')">
+              <label class="form-check-label">นาย</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" (click)="selectTitle('นางสาว')">
+              <label class="form-check-label">นางสาว</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" (click)="selectTitle('เด็กชาย')">
+              <label class="form-check-label">เด็กชาย</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" (click)="selectTitle('เด็กหญิง')">
+              <label class="form-check-label">เด็กหญิง</label>
+            </div>
+          </span>
+        </div>
+      </div>
       <div class="d-flex box-name">
         <div class="input-group">
           <span class="input-group-text text-form">ชื่อ :</span>
           <input 
-            type="text" 
+            type="text"
             class="form-control text-form" 
             formControlName="firstname" 
             [class.is-invalid]="zoomForm.controls.firstname.status == 'INVALID'"
@@ -56,12 +73,17 @@
     </div>
 
     <div class="box-button">
-      <div>
+      <div class="d-flex justify-content-center">
         <button class="btn btn-success text-btn" (click)="getSignature()" [disabled]="zoomForm.status == 'INVALID'">เข้าร่วมกิจกรรม</button>
       </div>
-      <!-- <div>
-        <button class="btn btn-danger text-btn" (click)="getTest()">Test</button>
+      <!-- <div class="d-flex justify-content-center">
+        <button class="btn btn-danger text-btn" (click)="getTest()" [disabled]="zoomForm.status == 'INVALID' || title==null">Test</button>
       </div> -->
+      <div class="d-flex justify-content-center" style="font-size: 10px; color: red;" *ngIf="title==null">
+        <span style="margin-left: 4 rem;">
+          *กรุณาเลือกคำนำหน้าชื่อ
+        </span>
+      </div>
     </div>
   </form>
 

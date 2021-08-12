@@ -48,7 +48,8 @@
   }
   .box-button {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 1rem;
   }
   .text-btn {
