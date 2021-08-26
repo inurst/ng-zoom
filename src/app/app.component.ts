@@ -38,7 +38,8 @@ export class AppComponent implements OnInit {
     zoomForm = this.fb.group({
       firstname: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
-      institution: ['', [Validators.required]]
+      institution: ['', [Validators.required]],
+      invite: ['', [Validators.required]],
     });
 
   ngOnInit() {
@@ -76,7 +77,7 @@ export class AppComponent implements OnInit {
 
   getTest() {
     console.log(this.zoomForm);
-    const zoomName: string = this.title + '+' + this.zoomForm.value.firstname + '+' + this.zoomForm.value.lastname + '+' + this.zoomForm.value.institution;
+    const zoomName: string = this.zoomForm.value.invite + '+' + this.zoomForm.value.firstname + '+' + this.zoomForm.value.lastname + '+' + this.zoomForm.value.institution;
     console.log('zoomName : ' + zoomName);
   }
 
@@ -89,7 +90,7 @@ export class AppComponent implements OnInit {
     document.getElementById('zmmtg-root').style.display = 'block'
     document.getElementById('zmmtg-root').style.zIndex = '10'
 
-    const zoomName: string = this.title + '+' + this.zoomForm.value.firstname + '+' + this.zoomForm.value.lastname + '+' + this.zoomForm.value.institution;
+    const zoomName: string = this.zoomForm.value.invite + '+' + this.zoomForm.value.firstname + '+' + this.zoomForm.value.lastname + '+' + this.zoomForm.value.institution;
     this.zoomForm.reset();
 
     ZoomMtg.init({
